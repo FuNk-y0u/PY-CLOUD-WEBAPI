@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>PY-Cloud:Login</title>
+	<script src="eel.js"></script>
+
+	<script>
+		function get_details_login(){
+			var usernamebox = document.getElementById("username");
+			var passwordbox = document.getElementById("password");
+			username = usernamebox.value;
+			password = passwordbox.value;
+			eel._login(username, password);
+		}
+
+		eel.expose(alert_login);
+		function alert_login(resp, result) {
+			if(result == "SUCESS"){
+				alert(resp);
+				location.assign('home.html');	
+			}
+			else{
+				alert(resp);
+			}
+			
+		}
+	</script>
+</head>
+<body bgcolor="#282a36">
+	<h1>login</h1>
+<label>Username:</label><br>
+<input type="text" id = "username"><br>
+<label>Password:</label><br>
+<input type="password" id = "password"><br>
+<button onclick="get_details_login()">Submit</button>
+<a href="signup.html">Signup here!</a>
+
+</body>
+</html>
